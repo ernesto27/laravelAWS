@@ -1,17 +1,24 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     $posts = \App\Post::all();
     return view('posts.index' , compact('posts'));
+});
+
+Route::post('post/create', function(Request $request){
+    // Todo validate image file - and input
+
+    $destinationPath = base_path(). '/public/images';
+    $fileName = $request->file('image')->getClientOriginalName();
+
+    if($request->file("image")->move($destinationPath, $fileName)){
+        $post = new \App\Post;
+        $post->title = $request->get('title');
+        $post->image_path = 'images' . $fileName;
+        $post->votes = 0;
+        $post->user_id = 1;
+        $post->save();
+    }
 });

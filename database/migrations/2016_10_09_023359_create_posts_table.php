@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('image_path');
             $table->integer('user_id');
-            $table->integer('votes');
+            $table->integer('votes')->default(0);
             $table->timestamps();
         });
     }
