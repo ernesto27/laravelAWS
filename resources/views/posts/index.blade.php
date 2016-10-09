@@ -14,14 +14,15 @@
                     
                     
                     <div class="col-sm-12 col-md-6"> 
+                        @foreach($posts as $post)
                         <div class="thumbnail"> 
                             <img 
-                            src="http://www.rememberlayne.com/blog/wp-content/uploads/2015/12/55BE2108-alice-in-chains-the-untold-story-book-out-this-week-image.jpg" 
+                            src="{{ $post->image_path }}" 
                             > 
                             <div class="caption"> 
-                                <h3>Thumbnail label</h3> 
+                                <h3>{{ $post->title }}</h3> 
                                     <p>
-                                        3333 points  -  1000 comments
+                                        {{ $post->votes }} points  -  1000 comments
                                     </p>
                                     <a href="#" class="btn btn-default" role="button">
                                         <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
@@ -33,20 +34,9 @@
                                 </p>
                             </div>
                         </div> 
+                        @endforeach
                         
-                        <div class="thumbnail"> 
-                            <img 
-                            src="http://www.rememberlayne.com/blog/wp-content/uploads/2015/12/55BE2108-alice-in-chains-the-untold-story-book-out-this-week-image.jpg" 
-                            data-holder-rendered="true"> 
-                            <div class="caption"> <h3>Thumbnail label</h3> <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p> <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> </div>
-                        </div> 
                         
-                        <div class="thumbnail"> 
-                            <img 
-                            src="http://www.rememberlayne.com/blog/wp-content/uploads/2015/12/55BE2108-alice-in-chains-the-untold-story-book-out-this-week-image.jpg" 
-                            data-holder-rendered="true"> 
-                            <div class="caption"> <h3>Thumbnail label</h3> <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p> <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> </div>
-                        </div> 
                     </div>
                 </div>
             
